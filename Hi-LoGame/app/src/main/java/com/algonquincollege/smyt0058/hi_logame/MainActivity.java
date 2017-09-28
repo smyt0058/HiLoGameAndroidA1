@@ -60,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
                     numGuesses--;//Invalid input does not count as a guess
                     return;
                 }
+
+                //parsing input string into an integer
+                userGuess = Integer.parseInt(guessField.getText().toString());
+
                 if (userGuess < 1 || userGuess > 1000) {
                     guessField.setText("");
                     guessField.setError(getString(R.string.invalid_number));
@@ -68,8 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                //parsing input string into an integer
-                userGuess = Integer.parseInt(guessField.getText().toString());
+
 
                 //Guess checks & Win/Lose conditions
                 if (userGuess < theNumber && numGuesses <= maxNumGuesses) {
