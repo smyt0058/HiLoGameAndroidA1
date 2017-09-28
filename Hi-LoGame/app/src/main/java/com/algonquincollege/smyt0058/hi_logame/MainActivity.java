@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Generating theNumber
-        theNumber = rand.nextInt(1000);
+        theNumber = rand.nextInt(1000) + 1;
 
         Button guessBtn = (Button) findViewById(R.id.guess);
         guessBtn.setOnClickListener(new View.OnClickListener() {
