@@ -77,23 +77,19 @@ public class MainActivity extends AppCompatActivity {
                 //Guess checks & Win/Lose conditions
                 if (userGuess < theNumber && numGuesses < maxNumGuesses) {
                     Toast.makeText(MainActivity.this, getString(R.string.too_low) + " You have " + (maxNumGuesses - numGuesses) + " Guesses left", Toast.LENGTH_SHORT).show();
-                }
-                if (userGuess > theNumber && numGuesses < maxNumGuesses) {
+                } else if (userGuess > theNumber && numGuesses < maxNumGuesses) {
                     Toast.makeText(MainActivity.this, getString(R.string.too_high) + " You have " + (maxNumGuesses - numGuesses) + " Guesses left", Toast.LENGTH_SHORT).show();
-                }
-                if (userGuess == theNumber && numGuesses <= 5) {
+                } else if (userGuess == theNumber && numGuesses <= 5) {
                     Toast.makeText(MainActivity.this, getString(R.string.superior_win), Toast.LENGTH_SHORT).show();
                     numGuesses = 0;
                     theNumber = rand.nextInt(1000);
                     guessField.setText("");
-                }
-                if (userGuess == theNumber && numGuesses <= maxNumGuesses) {
+                } else if (userGuess == theNumber && numGuesses <= maxNumGuesses) {
                     Toast.makeText(MainActivity.this, getString(R.string.excellent_win), Toast.LENGTH_SHORT).show();
                     numGuesses = 0;
                     theNumber = rand.nextInt(1000);
                     guessField.setText("");
-                }
-                if (numGuesses >= maxNumGuesses) {
+                } else if (numGuesses >= maxNumGuesses) {
                     Toast.makeText(MainActivity.this, getString(R.string.please_reset), Toast.LENGTH_SHORT).show();
                 }
 
