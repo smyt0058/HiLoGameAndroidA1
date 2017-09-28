@@ -34,10 +34,16 @@ public class MainActivity extends AppCompatActivity {
     Random rand = new Random();
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final EditText guessField = (EditText) findViewById(userGuessField);
+
+
 
         //Generating theNumber
         theNumber = rand.nextInt(1000);
@@ -47,14 +53,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                EditText guessField = (EditText) findViewById(userGuessField);
+
 
                 //incrementing numGuesses on click
                 numGuesses++;
 
                 //User input validation
                 if (guessField.getText().toString().matches("")) {
-                    guessField.setText("");
                     guessField.setError(getString(R.string.invalid_number));
                     Toast.makeText(MainActivity.this, getString(R.string.invalid_numberMsg), Toast.LENGTH_SHORT).show();
                     numGuesses--;//Invalid input does not count as a guess
@@ -73,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-
                 //Guess checks & Win/Lose conditions
                 if (userGuess < theNumber && numGuesses < maxNumGuesses) {
                     Toast.makeText(MainActivity.this, getString(R.string.too_low) + " You have " + (maxNumGuesses - numGuesses) + " Guesses left", Toast.LENGTH_SHORT).show();
@@ -89,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                     numGuesses = 0;
                     theNumber = rand.nextInt(1000);
                     guessField.setText("");
-                } else if (numGuesses >= maxNumGuesses) {
+                } else {
                     Toast.makeText(MainActivity.this, getString(R.string.please_reset), Toast.LENGTH_SHORT).show();
                 }
 
@@ -102,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         resetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                guessField.setText("");
                 Toast.makeText(MainActivity.this, "Game has been reset", Toast.LENGTH_SHORT).show();
                 numGuesses = 0;
                 theNumber = rand.nextInt(1000);
@@ -112,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         resetBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                guessField.setText("");
                 Toast.makeText(MainActivity.this, "The number was " + String.valueOf(theNumber) + ". Let's give it another go!", Toast.LENGTH_SHORT).show();
                 numGuesses = 0;
                 theNumber = rand.nextInt(1000);
