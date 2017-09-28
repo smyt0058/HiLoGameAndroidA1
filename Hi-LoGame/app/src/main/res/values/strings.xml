@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Hi-Lo Game</string>
+    <string name="action_about">About</string>
+    <string name="author" translatable="false">Jason Smyth (smyt0058)</string>
+    <string name="guess">Guess</string>
+    <string name="reset">Reset</string>
+    <string name="guess_prompt">Between 1 and 1000</string>
+    <string name="superior_win">Superior Win!</string>
+    <string name="excellent_win">Excellent Win!</string>
+    <string name="too_high">Too High!</string>
+    <string name="too_low">Too Low!</string>
+    <string name="invalid_numberMsg">Invalid number, please guess a number between 1 and 1000</string>
+    <string name="invalid_number">Invalid Number</string>
+    <string name="please_reset">Please Reset!</string>
+</resources>
